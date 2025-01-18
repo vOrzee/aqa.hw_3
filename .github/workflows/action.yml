@@ -22,6 +22,13 @@ jobs:
         # & означает, что в фоновом режиме не блокируем терминал для запуска тестов,
         # обязательно должен быть для запуска SUT в CI
         run: java -jar ./artifacts/app-mbank.jar &
+      - name: Wait for SUT to be ready
+        run: |
+          for i in {1..5}; do
+            nc -zv localhost 9999 && echo "SUT is ready" && exit 0 || echo "Waiting for SUT..."
+            sleep 1
+          done
+          exit 1
       - name: Build with Gradle
         # Запускаем автотесты
         # Для проектов на базе Selenide необходимо добавить параметр для запуска браузера
