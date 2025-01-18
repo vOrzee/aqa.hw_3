@@ -24,9 +24,9 @@ jobs:
         run: java -jar ./artifacts/app-mbank.jar &
       - name: Wait for SUT to be ready
         run: |
-          for i in {1..5}; do
+          for i in {1..15}; do
             nc -zv localhost 9999 && echo "SUT is ready" && exit 0 || echo "Waiting for SUT..."
-            sleep 1
+            sleep 3
           done
           exit 1
       - name: Build with Gradle
