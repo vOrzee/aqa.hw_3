@@ -41,6 +41,7 @@ out/
 *.rar
 
 ### Exclusions ###
+!artifacts/app-order.jar
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
