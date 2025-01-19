@@ -66,7 +66,7 @@ public class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector("button")).click();
         String text = driver.findElement(By.cssSelector(".input_invalid[data-test-id='name'] .input__sub")).getText().trim();
-        assertEquals("Имя и Фамилия указаны неверно. Допустимы только русские буквы, пробелы и дефисы.", text);
+        assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", text);
     }
 
     @ParameterizedTest
@@ -121,7 +121,7 @@ public class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Смирнов Роман");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79270000000");
         driver.findElement(By.cssSelector("button")).click();
-        driver.findElement(By.cssSelector("label.input_invalid[data-test-id='agreement']"));
+        driver.findElement(By.cssSelector(".input_invalid[data-test-id='agreement']"));
     }
 
 }
